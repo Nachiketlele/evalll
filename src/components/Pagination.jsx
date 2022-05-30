@@ -1,22 +1,22 @@
 import React from "react";
+import { Button,ButtonGroup,Select } from '@chakra-ui/react'
 
-const Pagination = () => {
-  // TODO: Remove below const and instead import them from chakra
-  const Button = () => <div />;
-  const ButtonGroup = () => <div />;
-  const Select = () => <div />;
+const Pagination = ({totalcount,setLimit,setPage,page,limit}) => {
 
   return (
     <ButtonGroup>
-      <Button data-cy="pagination-first-button"></Button>
-      <Button data-cy="pagination-previous-button"></Button>
-      <Select data-cy="pagination-limit-select">
-        <option data-cy="pagination-limit-3"></option>
-        <option data-cy="pagination-limit-6"></option>
-        <option data-cy="pagination-limit-9"></option>
+      <Button data-cy="pagination-first-button">First</Button>
+      <Button  disabled={page<=1}
+       onClick={()=>{ 
+          setPage(page-1)
+      }} data-cy="pagination-previous-button">Previous</Button>
+      <Select  onChange={(e)=>setLimit(Number(e.target.value))} data-cy="pagination-limit-select">
+        <option data-cy="pagination-limit-3">3</option>
+        <option data-cy="pagination-limit-6">6</option>
+        <option data-cy="pagination-limit-9">9</option>
       </Select>
-      <Button data-cy="pagination-next-button"></Button>
-      <Button data-cy="pagination-last-button"></Button>
+      <Button disabled={totalcount<=page*limit} onClick={()=>setPage(page+1)} data-cy="pagination-next-button">Next</Button>
+      <Button data-cy="pagination-last-button">Last</Button>
     </ButtonGroup>
   );
 };

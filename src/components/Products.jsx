@@ -1,16 +1,22 @@
 import React from "react";
-
+import AddProduct from "./AddProduct";
+import { Flex } from '@chakra-ui/react'
+import { Grid } from '@chakra-ui/react'
+import Product from "./Product";
+import Pagination from "./Pagination";
+import Styles from "./Add.module.css"
 const Products = () => {
-  // TODO: Remove below const and instead import them from chakra
-  const Flex = () => <div />;
-  const Grid = () => <div />;
 
   return (
-    <Flex>
-      {/*  AddProduct */}
-      <Grid>{/* List of Products */}</Grid>
-      {/* Pagination */}
+    <>
+     <AddProduct/>
+    <Flex >
+           <Grid templateRows="auto" gridtemplateColumns='repeat(3, 1fr)' gap={6} ><Product/></Grid>
     </Flex>
+    </>
+   
+ 
+   
   );
 };
 
