@@ -23,15 +23,15 @@ const Product = () => {
   return (
     <>
     <Stack className={Styles.div} data-cy="product">
-      {todo.map((to)=>(
+      {todo.map((el)=>(
         <>
-           <Image data-cy="product-image" src={to.imageSrc} />
-          <Text data-cy="product-category">{to.category}</Text>
+           <Image data-cy="product-image" src={el.imageSrc} />
+          <Text data-cy="product-category">{el.category}</Text>
           <Tag>
-            <TagLabel data-cy="product-gender">{to.gender}</TagLabel>
+            <TagLabel data-cy="product-gender">{el.gender}</TagLabel>
           </Tag>
-          <Heading data-cy="product-title">{to.title}</Heading>
-          <Box data-cy="product-price">{to.price}</Box>
+          <Heading data-cy="product-title">{el.title}</Heading>
+          <Box data-cy="product-price">{el.price}</Box>
           
           </>
         ))}
